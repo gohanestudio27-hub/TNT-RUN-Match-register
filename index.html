@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNT RUN Registro de partidas</title>
+    
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lexend+Deca:
+wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+One&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/CSS/indexCSS.css">
+    
+</head>
+<body>
+    <nav>
+        <a>Manual</a>
+        <a>Versus</a>
+        <a>Registro</a>
+        <a>Partidas</a>
+    </nav>
+    <main>
+
+<div class="manual_data_logger_CONTENT">
+   <div class="manual_data_logger">
+
+    
+    <div class="map_selector_CONTENT">
+    <input type="text" name="map_selector" id="map_selector" placeholder="00">
+   
+        <img id="flecha_derecha"  src="assets/img/flecha.png" alt="flecha derecha" height="80px" width="30px"style="transform: scaleX(-1);" >
+        <img id="map_img" src="assets/img/2026-04-01_00.45.47.png" width="150px">
+        <img id="flecha_izquierda" src="assets/img/flecha.png" alt="flecha izquierda" height="80px" width="30px" >
+    </div>
+
+    <div class="position_input">
+        <p>Posición</p>
+    <input type="text" inputmode="numeric" pattern="[1-32]"  name="position" id="position" placeholder="00" maxlength="2">
+   </div>
+
+    <div class="num_players_input">
+        <p>Número de jugadores</p>
+    <input type="text" inputmode="numeric" pattern="[4-32]"  name="number_players" id="number_players" placeholder="00" maxlength="2">
+    </div>
+    
+    <div class="match_day_num">
+        <button id="new_day">Nuevo Día</button> 
+        <p>1</p>
+    </div>
+
+    <div class="podium">
+    <img id="more_info_podium">
+    <p>Podio #</p>
+    <input type="text" inputmode="numeric" name="podium_position" id="podium_position" placeholder="-">
+    </div>
+
+
+<div class="players_logger_CONTENT">
+    <div class="players_logger">
+        <p id="me_gano">Me gano</p>
+        <div class="players_logger_img">
+        <img src="assets/img/Lupa.png" id="jugardor_me_gano_img">
+        </div>
+        <p id="le_gane">Le gane</p>
+        <div class="players_logger_img">
+        <img src="assets/img/Lupa.png" id="jugardor_le_gane_img">
+        </div>
+        <p id="otro">Otro</p>
+        <div class="players_logger_img">
+        <img src="assets/img/Lupa.png" id="jugador_otro_img">
+        </div>
+        <p id="me_paso">Me paso</p>
+        <div class="players_logger_img">
+        <img src="assets/img/Lupa.png" id="jugador_me_paso_img">
+        </div>
+        <p  id="lo_pase">Lo pase</p>
+        <div class="players_logger_img">
+        <img src="assets/img/Lupa.png" id="jugador_lo_pase_img">
+        </div>
+
+    </div>
+</div>
+
+    
+
+
+   </div>
+</div>
+<!-- END OF: "manual_data_logger_CONTENT" -->
+
+
+
+</main>
+    
+</body>
+</html>

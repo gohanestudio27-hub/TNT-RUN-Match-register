@@ -1,0 +1,335 @@
+html{
+ background-color: rgb(101, 100, 100);
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+    margin: 0px;
+}
+
+main{
+    margin: 0px;
+}
+
+nav a{
+font-size: 30px;
+padding: 0.3%;
+}
+
+nav{
+    display: flex;
+    gap: 7%;    
+    justify-content: center;    
+    max-width: 100%;
+    padding: 0.5%;
+    background-color: rgb(141, 141, 3);
+}
+
+nav a:hover{
+   background-color: rgb(193, 193, 5);
+   transition: background-color 0.1s ease-in-out;
+}
+
+
+
+.manual_data_logger_CONTENT{
+    margin: 30px;
+    padding: 20px;
+    background-color: rgb(214, 214, 214);
+    justify-content: center;
+}
+
+.manual_data_logger{
+    display: flex;
+    flex-flow: row;
+    gap: 5px;
+    width: 90%;
+    align-items: center;
+    
+}
+
+
+/*
+SELECTOR DE MAPA
+*/
+
+.map_selector_CONTENT{
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 40px 200px;
+    margin: 10px;
+}
+
+.map_selector_CONTENT input{
+
+    max-width: 100%;
+    text-align: center;
+    font-size: 10px;
+}
+
+#map_selector{
+    grid-column: 2;
+    grid-row: 1;
+    top: 0px;
+}
+
+#flecha_derecha{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#flecha_izquierda{
+    grid-column: 3;
+    grid-row: 2;
+}
+
+#map_img{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/*
+/SELECTOR DE MAPA
+*/
+
+/*
+POSICIÓN
+*/
+
+.position_input{
+    margin: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.position_input input{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    font-size: 70px;
+}
+
+/*
+/POSICIÓN
+*/
+
+/*
+NUMBER OF PLAYERS
+*/
+
+.num_players_input{
+     margin: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.num_players_input input{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    font-size: 70px;
+}
+
+/*
+/NUMBER OF PLAYERS
+*/
+
+/*
+MATCH NUMBER OF THE DAY
+*/
+
+.match_day_num{
+    margin: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.match_day_num p{
+    border: 1px solid;
+    border-color: black  solid;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70px;
+
+}
+
+.match_day_num button{
+    background-color: green;
+    color: white;
+    font: bold;
+}
+
+
+.match_day_num button:hover{
+    background-color: rgb(1, 85, 1);
+}
+
+/*
+/MATCH NUMBER OF THE DAY
+*/
+
+/*
+PODIUM
+*/
+
+.podium{
+    margin: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.podium input{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    font-size: 70px;
+}
+
+/*
+/PODIUM
+*/
+
+/*
+PLAYERS LOGGER
+*/
+
+.players_logger_CONTENT{
+    width: auto;
+}
+
+
+.players_logger{
+
+    display: grid;
+    grid-template-columns: 120px 120px 120px; 
+    grid-template-rows: repeat(5, 40px);
+    background-color: rgb(142, 142, 142);
+    border: 2px solid;
+    border-color: black solid;
+    text-align: center;
+}
+
+#me_gano{
+ 
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(247, 0, 0);
+}
+
+#le_gane{
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(0, 162, 16);
+}
+
+#otro{
+    grid-column: 3;
+    grid-row: 1;
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(0, 18, 178);
+}
+
+#me_paso{
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(247, 0, 0);
+}
+
+#lo_pase{
+    grid-column: 2;
+    grid-row: 3;
+    width: 100%;
+    margin: 0px;
+    background-color: rgb(0, 162, 16);
+}
+
+/*Imagenes lupa*/
+
+.players_logger_img{ 
+  margin: 0px;
+  background-color: rgb(253, 252, 252);
+  align-items: center;
+  padding: 2px;
+ }
+
+.players_logger img{
+    width: 30px;
+}
+
+#jugador_me_gano_img{
+    grid-column: 1;
+    grid-row: 2;
+    
+}
+
+#jugador_le_gane_img{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#jugador_otro_img{
+    grid-column: 3;
+    grid-row: 2/5;
+    background-color: rgb(74, 74, 74);
+}
+
+#jugador_me_paso_img{
+    grid-column: 1;
+    grid-row: 5;
+}
+
+#jugador_lo_pase_img{
+    grid-column: 2;
+    grid-row: 5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
