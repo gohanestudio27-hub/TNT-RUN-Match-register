@@ -5,6 +5,9 @@ $user = "root";
 $pass = "";
 $data_base = "tnt_register_matches";
 
-$connection_db = new mysqli($server, $user,  $pass,  $data_base)
+$connection_db = new mysqli($server, $user,  $pass,  $data_base);
 
+if ($connection_db->connect_error) {
+    die("Error de conexión: " . $connection_db->connect_error);
+};
 ?>

@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TNT RUN Registro de partidas</title>
+    <link rel="icon" href="assets/img/185602_tnt_icon.ico" type="image/ico">
     
     
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +18,7 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
 <link rel="stylesheet" href="assets/CSS/playersloggerCSS.css">
 
 <script src="assets/JS/btn_add_and_cancel_new_player.js" defer></script>
+<script src="assets/JS/search_bar.js" defer></script>
 
 </head>
 <body>
@@ -83,6 +85,9 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
          <button type="button"><img src="assets/img/add_player.png" id="add_player" width="40" height="40" alt="Agregar jugador"></button>
          <input type="text" id="search_bar_players" maxlength="50" name="search_player" placeholder="Buscar jugador">
          <button id="btn_cancel_new_player" type="button">Cancelar</button>
+         <div class="desactive_search" id="search_results">
+
+         </div>
        
       </div>
 
@@ -114,7 +119,7 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
       </div>
 
       <div class="show_new_player_and_btn_add">
-        <div class="show_new_player"></div>
+        <div id="show_new_player"></div>
         <button type="button">Guardar</button>
       </div>
 
@@ -135,7 +140,7 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
 <!-- END OF: "manual_data_logger_CONTENT" -->
 
 <div class="btn_register">
-<button type="reset" form="register_match">Nuevo registro</button>
+<button type="reset" form="register_match" id="btn_new_register">Nuevo registro</button>
 <button type="submit" form="register_match">Registrar</button>
 </div>
 
