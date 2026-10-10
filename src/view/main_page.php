@@ -19,6 +19,7 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
 
 <script src="assets/JS/btn_add_and_cancel_new_player.js" defer></script>
 <script src="assets/JS/search_bar.js" defer></script>
+<script src="assets/JS/btn_categories.js" defer></script>
 
 </head>
 <body>
@@ -96,15 +97,15 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
 
 
 
-      <div class="btns_categories">
-        <button type="button" id="win">Le gane</button>
-        <button type="button" id="lose">Me gano</button>
-        <button type="button" id="past">Lo pase</button>
-        <button type="button" id="opponent_past">Me paso</button>
-        <button type="button" id="draw">Empate</button>
-        <button type="button" id="bugger">Bugger</button>
-        <button type="button" id="sinnet">Sinnet</button>
-        <button type="button" id="not_play">No jugo</button>
+      <div class="btns_categories" id="categorie">
+        <button type="button" id="win" data-categorie = 1>Le gane</button>
+        <button type="button" id="lose" data-categorie = 2>Me gano</button>
+        <button type="button" id="past" data-categorie = 3>Lo pase</button>
+        <button type="button" id="opponent_past" data-categorie = 4>Me paso</button>
+        <button type="button" id="draw" data-categorie = 5>Empate</button>
+        <button type="button" id="bugger" data-categorie = 6>Bugger</button>
+        <button type="button" id="sinnet" data-categorie = 7>Sinnet</button>
+        <button type="button" id="not_play" data-categorie = 8>No jugo</button>
       </div>
 
        <p>Anomalias</p>

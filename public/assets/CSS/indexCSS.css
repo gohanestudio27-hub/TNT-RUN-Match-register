@@ -37,6 +37,7 @@ nav{
 nav a:hover{
    background-color: rgb(193, 193, 5);
    transition: background-color 0.1s ease-in-out;
+   cursor: pointer;
 }
 
 

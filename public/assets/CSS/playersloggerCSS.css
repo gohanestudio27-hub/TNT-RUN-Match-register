@@ -72,8 +72,10 @@ grid-row: 1/3;
     display: block;
     background-color: white;
     width: 280px;
-    height: 405px;
+    height: auto;
+    max-height: 405px;
     position: absolute;
+    overflow-y: auto;
     z-index: 100;
     top: 55px; 
     left: 15px;
@@ -89,6 +91,10 @@ grid-row: 1/3;
     padding: 8px 12px;
     cursor: pointer;
     border-bottom: 1px solid #050505;
+}
+
+#search_results.activate_search p:hover{
+    background-color:rgb(175, 175, 175);
 }
 
 #search_results.desactive_search{
@@ -157,7 +163,21 @@ grid-row: 1/3;
     margin: 0px;
     width: 200px;
     height: 45px;
-    border: 4px solid black;
+    box-shadow: inset 0 0 0 3px
+}
+
+#show_new_player p{
+    color: black;
+    font-size: 30px;
+}
+
+#show_new_player p.bugger_font_white{
+    color: white;
+    font-size: 30px;
+}
+
+#show_new_player.player_in{
+    background-color: white;
 }
 
 .show_new_player_and_btn_add button{
