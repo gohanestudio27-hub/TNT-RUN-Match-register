@@ -14,6 +14,10 @@ switch($action){
         require_once __DIR__ . '/../src/model/searchbar.php';
         exit;
 
+    case 'register_players':
+        require_once __DIR__ . '/../src/model/register_players.php';
+        exit;
+
     default:
         http_response_code(404);
         echo "page not found";

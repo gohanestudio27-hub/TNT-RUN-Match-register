@@ -85,7 +85,7 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
       <div class="search_bar_and_add_player">
          <button type="button"><img src="assets/img/add_player.png" id="add_player" width="40" height="40" alt="Agregar jugador"></button>
          <input type="text" id="search_bar_players" maxlength="50" name="search_player" placeholder="Buscar jugador">
-         <button id="btn_cancel_new_player" type="button">Cancelar</button>
+         <button id="btn_register_new_player" type="button">Guardar</button>
          <div class="desactive_search" id="search_results">
 
          </div>

@@ -18,10 +18,15 @@ if (!response.ok) {
 
 
 input_search_bar.addEventListener("input", (e) =>{
+
+
+if(btn_cancel){
+    return;
+}
+
 const query_search = e.target.value.toLowerCase().trim();
 
 results_space.innerHTML = '';
-input_search_bar.value = "";
 
 if (query_search === '') {
     results_space.classList.remove("activate_search");
@@ -65,7 +70,6 @@ if (e.target && e.target.tagName === "P") {
 
 let player_name_target = e.target.textContent;
 let new_player_id = e.target.dataset;
-console.log(new_player_id);
 
     input_search_bar.value = player_name_target;
 
