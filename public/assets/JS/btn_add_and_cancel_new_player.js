@@ -30,7 +30,6 @@ input_new_player.addEventListener("click", function(event) {
      btn_register_new_player.addEventListener("click", () => {
 
         let new_player_name = search_bar_space.value
-              console.log(new_player_name);
        fetch('index.php?action=register_players', {
        method: 'POST',
        headers:  {
@@ -45,18 +44,33 @@ input_new_player.addEventListener("click", function(event) {
         if(data.error){
           console.error(data.error);
         } else {
-          console.log("bien")
+          console.log("player register success")
         }
+
+        if(data.success){
+        let id_of_new_player = data.id;
+        console.log(id_of_new_player);
+        } else {
+          console.log("error con el id del usuario")
+        }
+
+        if(players_results !== undefined){
+          players_results.push({
+            id: data.id,
+            player_name: new_player_name
+          })
+        }
+
+        search_bar_space.value = "";
+        btn_cancel = false;
+        search_bar_space.classList.remove("new_player");
+        search_bar_space.placeholder = "Buscar jugador";    
+        btn_register_new_player.hidden = true;
+        input_new_player.src = "assets/img/add_player.png";
+
        })
-
-       fetch('index.php?action=get_players')
-       .then(response => {
-if (!response.ok) {
-  throw new Error(`Error HTTP ${response.status}`);
-} return response.json();
-
-})
 .catch(error => console.error('Players load error', error));
+
     })
 
 

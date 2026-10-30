@@ -15,6 +15,10 @@ try{
     $register_player = $connection_db->prepare("INSERT INTO players(player_name) VALUES(?)");
     $register_player->bind_param("s", $player);
     $register_player->execute();
+
+    $new_player_id = $connection_db->insert_id;
+    echo json_encode(["success" => true, "id" => $new_player_id]);
+
     $register_player-> close();
     exit;
 }
