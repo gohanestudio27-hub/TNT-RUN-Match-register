@@ -102,6 +102,41 @@ results_space.classList.add("desactive_search");
 
 })
 
+/**
+ * ─────────────────────────────────────────────────────────────────
+ *  ███████╗ █████╗ ██╗   ██╗███████╗
+ *  ██╔════╝██╔══██╗██║   ██║██╔════╝
+ *  ███████╗███████║██║   ██║█████╗  
+ *  ╚════██║██╔══██║╚██╗ ██╔╝██╔══╝  
+ *  ███████║██║  ██║ ╚████╔╝ ███████╗
+ *  ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝
+ * ─────────────────────────────────────────────────────────────────
+ */
+
+const btn_remove_new_player = document.getElementById("remove_new_player");
+
+btn_remove_new_player.addEventListener("click", () =>{
+    show_new_player.innerHTML = "";
+    show_new_player.classList.remove("player_in");
+    show_new_player.style.backgroundColor = ""
+    let new_player_id = null
+    anomalies.clear()
+    while(anomalies_space_id.firstChild){
+        anomalies_space_id.removeChild(anomalies_space_id.firstChild)
+
+      for(const anomalie_set in anomalies_space_id.dataset){
+        delete anomalies_space_id.dataset[anomalie_set];
+      }
+
+    }
+})
+
+
+
+
+        
+    
+
 
 
 

@@ -73,9 +73,3 @@ input_new_player.addEventListener("click", function(event) {
 
     })
 
-
-
-
-
-        
-    

@@ -109,19 +109,26 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
       </div>
 
        <p>Anomalias</p>
-      <div class="btns_anomalies">
+      <div class="btns_anomalies" id="anomalies">
 
-        <button type="button" id="corner">Corner</button>
-        <button type="button" id="x2jump">Doble salto</button>
-        <button type="button" id="smj">S.M.J</button>
-        <button type="button" id="friendly_match">Amistoso</button>
-        <button type="button" id="lagbank">Lagbank</button>
+        <button type="button" id="corner" data-anomalie = 1>Corner</button>
+        <button type="button" id="x2jump" data-anomalie = 2>Doble salto</button>
+        <button type="button" id="smj" data-anomalie = 3>S.M.J</button>
+        <button type="button" id="friendly_match" data-anomalie = 4>Amistoso</button>
+        <button type="button" id="lagbank" data-anomalie = 5>Lagbank</button>
 
       </div>
 
       <div class="show_new_player_and_btn_add">
         <div id="show_new_player"></div>
-        <button type="button">Guardar</button>
+
+        <div class="anomalies_space" id="anomalies_space_id"></div>
+        
+      </div>
+
+      <div class="div_remove_new_player">
+        <button type="button" id="remove_new_player">Quitar</button>
+        <button type="button" id="new_player_to_register_space">Guardar</button>
       </div>
 
 
