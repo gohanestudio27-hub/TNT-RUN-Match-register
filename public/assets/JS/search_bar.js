@@ -3,8 +3,10 @@ const results_space = document.getElementById("search_results");
 const show_new_player = document.getElementById("show_new_player");
 
 let players_results = [];
-let selected_player = [];
+let present_player = [];
 let new_player_id = null
+
+
 
 fetch('index.php?action=get_players')
 .then(response => {
@@ -60,6 +62,18 @@ if(players_filter.length >  0){
 
 })
 
+/**
+ * ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ *  ███████╗███████╗██╗     ███████╗ ██████╗████████╗    ██████╗ ██╗      █████╗ ██╗   ██╗███████╗██████╗ 
+ *  ██╔════╝██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝    ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝██╔════╝██╔══██╗
+ *  ███████╗█████╗  ██║     █████╗  ██║        ██║       ██████╔╝██║     ███████║ ╚████╔╝ █████╗  ██████╔╝
+ *  ╚════██║██╔══╝  ██║     ██╔══╝  ██║        ██║       ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  ██╔══╝  ██╔══██╗
+ *  ███████║███████╗███████╗███████╗╚██████╗   ██║       ██║     ███████╗██║  ██║   ██║   ███████╗██║  ██║
+ *  ╚══════╝╚══════╝╚══════╝╚══════╝ ╚═════╝   ╚═╝       ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
+ * ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ */
+
+
 results_space.addEventListener("click", (e) => {
     e.stopPropagation();
 
@@ -69,7 +83,8 @@ if (e.target && e.target.tagName === "P") {
 
 
 let player_name_target = e.target.textContent;
-let new_player_id = e.target.dataset;
+new_player_id = Number(e.target.dataset.id);
+
 
     input_search_bar.value = player_name_target;
 
@@ -119,7 +134,7 @@ btn_remove_new_player.addEventListener("click", () =>{
     show_new_player.innerHTML = "";
     show_new_player.classList.remove("player_in");
     show_new_player.style.backgroundColor = ""
-    let new_player_id = null
+    new_player_id = null
     anomalies.clear()
     while(anomalies_space_id.firstChild){
         anomalies_space_id.removeChild(anomalies_space_id.firstChild)
@@ -130,6 +145,136 @@ btn_remove_new_player.addEventListener("click", () =>{
 
     }
 })
+
+const btn_save_new_player = document.getElementById("new_player_to_register_space");
+const new_player_space_to_save = document.getElementById("new_player_space_div");
+const present_players_space = document.getElementById("present_players_space")
+
+btn_save_new_player.addEventListener("click", () => {
+
+
+// restrictions for adding a player
+
+
+
+
+ if (new_player_id == null) {
+    return;
+}
+
+if(categorie_num == null){
+    return
+}
+
+const this_player_is_in = present_player.some(
+    player => Number(player.id) === Number(new_player_id)
+);
+
+if (this_player_is_in) {
+    return;
+}
+
+const unique_final = present_player.some(
+    player => [1, 2].includes(Number(player.categorie))
+);
+
+const category = Number(categorie_num);
+
+if (unique_final && [1, 2, 5].includes(category)) {
+    return;
+}
+
+const has_draw = present_player.some(
+    player => Number(player.categorie) === 5
+);
+
+if (has_draw && [1, 2].includes(category)) {
+    return;
+}
+    
+// END restrictions for adding a player
+
+if(anomalies.size  === 0){
+    present_player.push({
+      id: new_player_id,
+      categorie: categorie_num
+    })
+}
+else  {
+      present_player.push({
+      id: new_player_id,
+      categorie: categorie_num,
+      anomalies: [...anomalies]
+    })
+
+}
+
+console.log(present_player)
+
+
+    let new_player_space_to_save_style = window.getComputedStyle(new_player_space_to_save)
+    let new_player_space_clone = new_player_space_to_save.cloneNode(true)
+
+for(const styleProperty of new_player_space_to_save_style) {
+
+    if (!['width', 'height', 'max-width', 'max-height', 'position', 'top', 'left'].includes(styleProperty)) {
+        let propertyValue = new_player_space_to_save_style.getPropertyValue(styleProperty);
+        new_player_space_clone.style[styleProperty] = propertyValue;
+    }}
+
+    new_player_space_clone.style.padding = "0px";
+    new_player_space_clone.style.width = "270px";
+    new_player_space_clone.style.margin = "7px 0px";
+
+  const text_clone = new_player_space_clone.querySelector(
+    "#show_new_player p"
+);
+
+if (text_clone) {
+    text_clone.style.color = Number(categorie_num) === 6
+        ? "white"
+        : "black";
+
+    text_clone.style.setProperty(
+        "-webkit-text-fill-color",
+        "currentColor"
+    );
+}
+
+    present_players_space.appendChild(new_player_space_clone);
+
+    console.log({
+    categoria: categorie_num,
+    parrafo: text_clone,
+    conectado: text_clone.isConnected,
+    colorAplicado: text_clone.style.color,
+    colorVisible: window.getComputedStyle(text_clone).color
+});
+
+
+    // Este codigo se podria resumir en una funcion tanto para el boton guardado como para el de quitar
+    show_new_player.innerHTML = "";
+    show_new_player.style.backgroundColor = ""
+    new_player_id = null
+    anomalies.clear()
+    categorie_num = null;
+    while(anomalies_space_id.firstChild){
+        anomalies_space_id.removeChild(anomalies_space_id.firstChild)
+
+      for(const anomalie_set in anomalies_space_id.dataset){
+        delete anomalies_space_id.dataset[anomalie_set];
+      }
+
+    }
+    // Hasta aqui se podria agregar a la funcion    
+
+    
+
+})
+
+
+
+
 
 
 

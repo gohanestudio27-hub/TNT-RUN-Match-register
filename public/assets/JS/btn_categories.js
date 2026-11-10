@@ -8,10 +8,10 @@ function white_font_player_bugger(){
     if(!player_p) return;
 
     if(categorie_num == 6){
-      player_p.classList.add("bugger_font_white");
+      player_p.style.color = "white";
     } else {
-      player_p.classList.remove("bugger_font_white");
-}
+      player_p.style.color = "black";
+    }
 }
 
 categories.addEventListener("click", (e) => {
@@ -26,6 +26,8 @@ categories.addEventListener("click", (e) => {
        console.log(typeof(categorie_num));
 
        white_font_player_bugger()
+       update_anomalies_availability();
+
 
     }
 
@@ -34,7 +36,7 @@ categories.addEventListener("click", (e) => {
 
 /**
  * ───────────────────────────────────────────────────────────────────────────────────────────────────
- *  █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ██╗     ██╗███████╗███████╗
+ *   █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ██╗     ██╗███████╗███████╗
  *  ██╔══██╗████╗  ██║██╔═══██╗████╗ ████║██╔══██╗██║     ██║██╔════╝██╔════╝
  *  ███████║██╔██╗ ██║██║   ██║██╔████╔██║███████║██║     ██║█████╗  ███████╗
  *  ██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║     ██║██╔══╝  ╚════██║
@@ -54,17 +56,50 @@ const btn_friendly= document.getElementById("friendly_match");
 
 const anomalies = new Set()
 
+function anomalies_blocked() {
+    return [6, 8].includes(Number(categorie_num)); 
+}
+
+function update_anomalies_availability() {
+    const blocked = anomalies_blocked();
+
+    const buttons = [
+        btn_corner,
+        btn_smj,
+        btn_x2jump,
+        btn_lagbank,
+        btn_friendly
+    ];
+
+    buttons.forEach(button => {
+        button.disabled = blocked; 
+    });
+
+    if (blocked) {
+        anomalies_space_id.innerHTML = "";
+
+        anomalies.clear();
+
+        for (const key of Object.keys(anomalies_space_id.dataset)) {
+            delete anomalies_space_id.dataset[key];
+        }
+    }
+}
 
 btn_corner.addEventListener("click", () =>{
 
+   if (anomalies_blocked()) {
+        return;
+   }
 
   if(anomalies_space_id.children.length < 5 && !anomalies_space_id.dataset.corner == true){
   const corner_img = document.createElement("img");
   corner_img.src = "assets/img/anomalies_img/corner_icon.png";
+  corner_img.title = "Corner"
   anomalies_space_id.dataset.corner = true;
   anomalies_space_id.appendChild(corner_img)
-
-  let anomalie_id = btn_corner.dataset
+  
+  const anomalie_id = Number(btn_corner.dataset.anomalie);
 
   anomalies.add(anomalie_id)
 }
@@ -72,14 +107,19 @@ btn_corner.addEventListener("click", () =>{
 
 btn_smj.addEventListener("click", () =>{
 
+   if (anomalies_blocked()) {
+        return;
+   }
+
 
   if(anomalies_space_id.children.length < 5 && !anomalies_space_id.dataset.smj == true){
   const smj_img = document.createElement("img");
   smj_img.src = "assets/img/anomalies_img/smj_icon.png";
+  smj_img.title = "Sospecha de mal juego intencionado"
   anomalies_space_id.dataset.smj = true;
   anomalies_space_id.appendChild(smj_img)
 
-  let anomalie_id = btn_smj.dataset
+  const anomalie_id = Number(btn_smj.dataset.anomalie);
 
   anomalies.add(anomalie_id)
 }
@@ -87,14 +127,19 @@ btn_smj.addEventListener("click", () =>{
 
 btn_x2jump.addEventListener("click", () =>{
 
+   if (anomalies_blocked()) {
+        return;
+   }
+
 
   if(anomalies_space_id.children.length < 5 && !anomalies_space_id.dataset.x2jump == true){
   const x2jump_img = document.createElement("img");
   x2jump_img.src = "assets/img/anomalies_img/x2jump_icon.png";
+  x2jump_img.title = "Doble Salto";
   anomalies_space_id.dataset.x2jump = true;
   anomalies_space_id.appendChild(x2jump_img)
 
-  let anomalie_id = btn_x2jump.dataset
+  const anomalie_id = Number(btn_x2jump.dataset.anomalie);
 
   anomalies.add(anomalie_id)
 }
@@ -102,14 +147,19 @@ btn_x2jump.addEventListener("click", () =>{
 
 btn_lagbank.addEventListener("click", () =>{
 
+   if (anomalies_blocked()) {
+        return;
+   }
+
 
   if(anomalies_space_id.children.length < 5 && !anomalies_space_id.dataset.lagbank == true){
   const lagbank_img = document.createElement("img");
   lagbank_img.src = "assets/img/anomalies_img/sinnet_icon.png";
+  lagbank_img.title = "Lagbank"
   anomalies_space_id.dataset.lagbank = true;
   anomalies_space_id.appendChild(lagbank_img)
 
-  let anomalie_id = btn_lagbank.dataset
+  const anomalie_id = Number(btn_lagbank.dataset.anomalie);
 
   anomalies.add(anomalie_id)
 }
@@ -117,14 +167,18 @@ btn_lagbank.addEventListener("click", () =>{
 
 btn_friendly.addEventListener("click", () =>{
 
+   if (anomalies_blocked()) {
+        return;
+   }
 
   if(anomalies_space_id.children.length < 5 && !anomalies_space_id.dataset.friendly == true){
   const friendly_img = document.createElement("img");
   friendly_img.src = "assets/img/anomalies_img/friendly_icon.png";
+  friendly_img.title = "Partida Amistosa"
   anomalies_space_id.dataset.friendly = true;
   anomalies_space_id.appendChild(friendly_img)
 
-  let anomalie_id = btn_friendly.dataset
+  const anomalie_id = Number(btn_friendly.dataset.anomalie);
 
   anomalies.add(anomalie_id)
   console.log(anomalies)

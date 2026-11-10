@@ -26,7 +26,6 @@ input_new_player.addEventListener("click", function(event) {
 }
 )
 
-
      btn_register_new_player.addEventListener("click", () => {
 
         let new_player_name = search_bar_space.value

@@ -20,6 +20,7 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
 <script src="assets/JS/btn_add_and_cancel_new_player.js" defer></script>
 <script src="assets/JS/search_bar.js" defer></script>
 <script src="assets/JS/btn_categories.js" defer></script>
+<script src="assets/JS/map_changer.js" defer></script>
 
 </head>
 <body>
@@ -39,9 +40,9 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
     <div class="map_selector_CONTENT">
     <input type="text" name="map_selector" id="map_selector_id" placeholder="00" maxlength="2" required>
    
-        <img id="flecha_derecha"  src="assets/img/flecha.png" alt="flecha derecha" >
-        <img id="map_img" src="assets/img/2026-04-01_00.45.47.png">
-        <img id="flecha_izquierda" src="assets/img/flecha.png" alt="flecha izquierda">
+        <img id="right_arrow"  src="assets/img/flecha.png" alt="flecha derecha" >
+        <img id="map_img">
+        <img id="left_arrow" src="assets/img/flecha.png" alt="flecha izquierda">
     </div>
 
     <div class="position_input">
@@ -75,6 +76,14 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
   ██║     ███████╗██║  ██║   ██║   ███████╗██║  ██║███████║
   ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚══════╝
  ─────────────────────────────────────────────────────────────────────────────
+  ───────────────────────────────────────────────────────────────────────────────────────────────────
+  ██████╗ ███████╗ ██████╗ ██╗███████╗████████╗███████╗██████╗ 
+  ██╔══██╗██╔════╝██╔════╝ ██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗
+  ██████╔╝█████╗  ██║  ███╗██║███████╗   ██║   █████╗  ██████╔╝
+  ██╔══██╗██╔══╝  ██║   ██║██║╚════██║   ██║   ██╔══╝  ██╔══██╗
+  ██║  ██║███████╗╚██████╔╝██║███████║   ██║   ███████╗██║  ██║
+  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
+ ───────────────────────────────────────────────────────────────────────────────────────────────────
 -->
 
 
@@ -84,7 +93,7 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
 
       <div class="search_bar_and_add_player">
          <button type="button"><img src="assets/img/add_player.png" id="add_player" width="40" height="40" alt="Agregar jugador"></button>
-         <input type="text" id="search_bar_players" maxlength="50" name="search_player" placeholder="Buscar jugador">
+         <input type="text" id="search_bar_players" maxlength="50" name="search_player" placeholder="Buscar jugador" autocomplete="off">
          <button id="btn_register_new_player" type="button">Guardar</button>
          <div class="desactive_search" id="search_results">
 
@@ -119,7 +128,7 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
 
       </div>
 
-      <div class="show_new_player_and_btn_add">
+      <div class="show_new_player_and_btn_add" id="new_player_space_div">
         <div id="show_new_player"></div>
 
         <div class="anomalies_space" id="anomalies_space_id"></div>
@@ -135,14 +144,32 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
     </div>
 </div>
 
-<div class="present_players_space">
+
+    <!--
+ ─────────────────────────────────────────────────────────────────────────────
+  ██████╗ ██╗      █████╗ ██╗   ██╗███████╗██████╗ ███████╗
+  ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝██╔════╝██╔══██╗██╔════╝
+  ██████╔╝██║     ███████║ ╚████╔╝ █████╗  ██████╔╝███████╗
+  ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  ██╔══╝  ██╔══██╗╚════██║
+  ██║     ███████╗██║  ██║   ██║   ███████╗██║  ██║███████║
+  ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚══════╝
+ ─────────────────────────────────────────────────────────────────────────────
+ ───────────────────────────────────────────────────────────────────────────────────
+  ███████╗ █████╗ ██╗   ██╗███████╗██████╗ 
+  ██╔════╝██╔══██╗██║   ██║██╔════╝██╔══██╗
+  ███████╗███████║██║   ██║█████╗  ██║  ██║
+  ╚════██║██╔══██║╚██╗ ██╔╝██╔══╝  ██║  ██║
+  ███████║██║  ██║ ╚████╔╝ ███████╗██████╔╝
+  ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚═════╝ 
+ ───────────────────────────────────────────────────────────────────────────────────
+-->
+
+
+<div class="present_players_space" id="present_players_space">
 
 </div>
 
-    
-
-
- 
+  
    </form>
 </div>
 <!-- END OF: "manual_data_logger_CONTENT" -->

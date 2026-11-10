@@ -1,5 +1,5 @@
 html{
- background-color: rgb(101, 100, 100);
+ background-color: rgb(68, 68, 68);
   font-family: "Cal Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -8,8 +8,9 @@ html{
 }
 
 body{
-  
     margin: 0px;
+    overflow-x: hidden;
+
 }
 
 main{
@@ -79,7 +80,7 @@ img {
 
 
 /*
-SELECTOR DE MAPA
+Map_selector
 */
 
 .map_selector_CONTENT{
@@ -98,21 +99,25 @@ SELECTOR DE MAPA
     grid-row: 1;
 }
 
-#flecha_derecha{
+#right_arrow{
     height: 100%;
     width: 100%;
     grid-column: 3;
     grid-row: 2;
+    cursor: pointer;
+    background-color:rgb(128, 128, 128);
 }
 
 
 
-#flecha_izquierda{
+#left_arrow{
     height: 100%;
     width: 100%;
     grid-column: 1;
     grid-row: 2;
     transform: scaleX(-1);
+    cursor: pointer;
+    background-color:rgb(128, 128, 128);
 }
 
 #map_img{
@@ -122,12 +127,9 @@ SELECTOR DE MAPA
     grid-row: 2;
 }
 
-/*
-/SELECTOR DE MAPA
-*/
 
 /*
-POSICIÓN
+POSITION
 */
 
 .position_input{
@@ -152,10 +154,6 @@ POSICIÓN
     text-align: center;
     font-size: 70px;
 }
-
-/*
-/POSICIÓN
-*/
 
 /*
 NUMBER OF PLAYERS
@@ -185,10 +183,6 @@ NUMBER OF PLAYERS
     text-align: center;
     font-size: 70px;
 }
-
-/*
-/NUMBER OF PLAYERS
-*/
 
 /*
 MATCH NUMBER OF THE DAY
@@ -238,9 +232,6 @@ MATCH NUMBER OF THE DAY
     background-color: rgb(1, 85, 1);
 }
 
-/*
-/MATCH NUMBER OF THE DAY
-*/
 
 /*
 PODIUM
