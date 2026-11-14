@@ -38,11 +38,16 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
 
     
     <div class="map_selector_CONTENT">
-    <input type="text" name="map_selector" id="map_selector_id" placeholder="00" maxlength="2" required>
+    <input type="text" name="map_selector" id="map_selector_id" inputmode="numeric" placeholder="00" maxlength="2" autocomplete="off" required>
    
-        <img id="right_arrow"  src="assets/img/flecha.png" alt="flecha derecha" >
-        <img id="map_img">
-        <img id="left_arrow" src="assets/img/flecha.png" alt="flecha izquierda">
+          <div id="right_arrow">
+              <img src="assets/img/flecha.png" alt="right arrow">
+          </div>
+        <img id="map_img">   
+          <div id="left_arrow">
+              <img src="assets/img/flecha.png" alt="left arrow">
+          </div>
+        <p id="map_name"></p>
     </div>
 
     <div class="position_input">
@@ -65,7 +70,7 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
     <p>Podio #</p>
     <input type="text" inputmode="numeric" name="podium_position" id="podium_position" placeholder="-">
     </div>
-      </div> 
+    </div> 
 
     <!--
  ─────────────────────────────────────────────────────────────────────────────
@@ -174,9 +179,25 @@ wght@100..900&family=Martian+Mono:wght@100..800&family=Special+Gothic+Condensed+
 </div>
 <!-- END OF: "manual_data_logger_CONTENT" -->
 
+<!--
+ ─────────────────────────────────────────────────────────────────────────────────
+   █████╗ ██╗     ███████╗██████╗ ████████╗███████╗
+  ██╔══██╗██║     ██╔════╝██╔══██╗╚══██╔══╝██╔════╝
+  ███████║██║     █████╗  ██████╔╝   ██║   ███████╗
+  ██╔══██║██║     ██╔══╝  ██╔══██╗   ██║   ╚════██║
+  ██║  ██║███████╗███████╗██║  ██║   ██║   ███████║
+  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝
+ ─────────────────────────────────────────────────────────────────────────────────
+-->
+
+<div id="player_register_error"></div>
+
+
+
+
 <div class="btn_register">
+<button type="submit" form="register_match" id="register_button">Registrar</button>
 <button type="reset" form="register_match" id="btn_new_register">Nuevo registro</button>
-<button type="submit" form="register_match">Registrar</button>
 </div>
 
 
